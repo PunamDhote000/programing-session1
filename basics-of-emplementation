@@ -1,0 +1,13 @@
+import math
+
+def calculate_rooms(b, g, s):
+    rooms_for_boys = math.ceil(b / s) 
+    rooms_for_girls = math.ceil(g / s)  
+    return rooms_for_boys + rooms_for_girls  
+
+t = int(input())
+
+
+for _ in range(t):
+    b, g, s = map(int, input().split())  
+    print(calculate_rooms(b, g, s))  
