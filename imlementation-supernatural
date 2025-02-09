@@ -1,0 +1,21 @@
+from itertools import product
+
+def count_supernatural_numbers(n):
+    digits = [2, 3, 4, 5, 6, 7, 8, 9] 
+    supernatural_count = 0
+    
+    max_digits = len(str(n)) + 1
+    
+    for length in range(1, max_digits + 1):
+        for combination in product(digits, repeat=length):
+            prod = 1
+            for digit in combination:
+                prod *= digit
+            
+            if prod == n:
+                supernatural_count += 1
+                
+    return supernatural_count
+
+n = int(input().strip())
+print(count_supernatural_numbers(n))
