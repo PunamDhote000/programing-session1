@@ -1,0 +1,24 @@
+class Solution:
+    def mergeArrays(self, nums1, nums2):
+        merged_dict = {} 
+       
+        for id, value in nums1:
+            if id in merged_dict:
+                merged_dict[id] += value 
+            else:
+                merged_dict[id] = value  
+
+        for id, value in nums2:
+            if id in merged_dict:
+                merged_dict[id] += value 
+            else:
+                merged_dict[id] = value  
+        
+        merged_list = [[id, merged_dict[id]] for id in sorted(merged_dict)]
+
+        return merged_list
+
+solution = Solution()
+
+print(solution.mergeArrays([[1,2],[2,3],[4,5]], [[1,4],[3,2],[4,1]])) 
+print(solution.mergeArrays([[2,4],[3,6],[5,5]], [[1,3],[4,3]]))       
