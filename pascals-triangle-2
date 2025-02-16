@@ -1,0 +1,10 @@
+from math import comb
+
+class Solution:
+    def getRow(self, rowIndex):
+        return [comb(rowIndex, k) for k in range(rowIndex + 1)]
+
+solution = Solution()
+print(solution.getRow(3))  
+print(solution.getRow(0))  
+print(solution.getRow(1))
