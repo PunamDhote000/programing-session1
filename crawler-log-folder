@@ -1,0 +1,56 @@
+Counter Approach_
+
+class Solution:
+    def minOperations(self, logs):
+        folderDepth = 0 
+        
+        for operation in logs:
+            if operation == "../":  
+                if folderDepth > 0: 
+                    folderDepth -= 1
+            elif operation == "./":  
+                continue 
+            else:  
+                folderDepth += 1 
+        return folderDepth 
+
+logs1 = ["d1/", "d2/", "../", "d21/", "./"]
+logs2 = ["d1/", "d2/", "./", "d3/", "../", "d31/", "../"]
+logs3 = ["../", "../", "./"]
+
+solution = Solution()  
+print(solution.minOperations(logs1))  
+print(solution.minOperations(logs2)) 
+print(solution.minOperations(logs3)) 
+
+
+Stack Approach_
+
+class Solution:
+    def minOperations(self, logs):
+        stack = []  
+
+        for operation in logs:
+            if operation == "../":
+                if stack:
+                    stack.pop()  
+            elif operation != "./":
+                stack.append(operation)  
+
+        return len(stack)
+
+solution = Solution() 
+
+logs1 = ["d1/", "d2/", "../", "d21/", "./"]
+logs2 = ["d1/", "d2/", "./", "d3/", "../", "d31/", "../"]
+logs3 = ["../", "../", "./"]
+
+print(solution.minOperations(logs1)) 
+print(solution.minOperations(logs2))  
+print(solution.minOperations(logs3))  
+
+
+
+
+
+
