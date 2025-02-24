@@ -1,0 +1,15 @@
+from typing import List
+
+class Solution:
+    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
+        set1, set2 = set(nums1), set(nums2)  # Convert lists to sets to remove duplicates
+        return [list(set1 - set2), list(set2 - set1)]  # Find elements unique to each set
+
+solution = Solution()
+nums1 = [1, 2, 3]
+nums2 = [2, 4, 6]
+print(solution.findDifference(nums1, nums2)) 
+
+nums1 = [1, 2, 3, 3]
+nums2 = [1, 1, 2, 2]
+print(solution.findDifference(nums1, nums2)) 
