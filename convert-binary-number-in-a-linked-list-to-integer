@@ -1,0 +1,17 @@
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def getDecimalValue(head: ListNode) -> int:
+    num = 0
+    while head:
+        num = (num << 1) | head.val  # Bitwise left shift and add current digit
+        head = head.next
+    return num
+
+head = ListNode(1, ListNode(0, ListNode(1)))
+print(getDecimalValue(head))  
+
+head2 = ListNode(0)
+print(getDecimalValue(head2)) 
