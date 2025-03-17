@@ -1,0 +1,43 @@
+APPROACH:1
+
+class Solution:
+    def minOperations(self, logs):
+        depth = 0
+        for log in logs:
+            if log == "../":
+                depth = max(0, depth - 1) 
+                
+            elif log == "./":
+                continue  
+            else:
+                depth += 1 
+        return depth
+
+sol = Solution()
+print(sol.minOperations(["d1/","d2/","../","d21/","./"]))  
+print(sol.minOperations(["d1/","d2/","./","d3/","../","d31/"]))  
+print(sol.minOperations(["../","../","../"]))  
+
+APPROACH:2
+
+class Solution:
+    def minOperations(self, logs):
+        stack = []
+        for log in logs:
+            if log == "../":
+                if stack:
+                    stack.pop()  
+            elif log == "./":
+                continue  
+            else:
+                stack.append(log)  
+        return len(stack)  
+
+
+sol = Solution()
+print(sol.minOperations(["d1/","d2/","../","d21/","./"]))  
+print(sol.minOperations(["d1/","d2/","./","d3/","../","d31/"]))  
+print(sol.minOperations(["../","../","../"]))  
+
+
+
