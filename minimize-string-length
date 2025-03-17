@@ -1,0 +1,13 @@
+class Solution:
+    def minimizedStringLength(self, s: str) -> int:
+        stack = set()  
+        
+        for char in s:
+            stack.add(char)  
+        
+        return len(stack)  
+
+solution = Solution()
+print(solution.minimizedStringLength("aaabc")) 
+print(solution.minimizedStringLength("cbbd"))  
+print(solution.minimizedStringLength("baadccab"))  
